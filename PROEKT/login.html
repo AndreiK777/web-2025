@@ -2,33 +2,37 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Логин</title>
+  <meta charset="UTF-8">
+  <title>Логин</title>
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div>
-        <h1>Войти</h1>
-        <div>
-            <img src="https://raw.githubusercontent.com/AndreiK777/web-2025/65b9868b3007d1e8653d56ad209a9c84b9ed4148/PROEKT/photos/Frame45.svg" alt="Фотография">
-        </div>
-        <div>
-            <label for="username">Электропочта</label><br>
-            <input type="text" id="username" name="username" required><br>
-            <small>Введите электропочту в формате *****@***.**</small>
-        </div>
-        <div>
-            <br> <label for="password">Пароль</label> <br>
-            <input type="password" id="password" name="password" required>
-            <div>
-                <img src="https://raw.githubusercontent.com/AndreiK777/web-2025/65b9868b3007d1e8653d56ad209a9c84b9ed4148/PROEKT/ICONS/Eye-off24.svg" alt="скрыть пароль">
-                <img src="https://raw.githubusercontent.com/AndreiK777/web-2025/65b9868b3007d1e8653d56ad209a9c84b9ed4148/PROEKT/ICONS/Eye24.svg" alt="показать пароль">
-            </div>
-        </div>
-        <div>
-            <button type="submit">Продолжить</button>
-        </div>
+  <header>
+    <h1 class="main-header">Войти</h1>
+  </header>
+  <img src="./photos/login.png" alt="фотография">
+  <form class="main-form">
+    <div class="login-container">
+      <label for="username">Электропочта</label>
+      <div class="input-login">
+        <input type="text" id="username" name="username" required>
+      </div>
+      <small class="description">Введите электропочту в формате *****@***.**</small>
     </div>
+    <div class="password-container">
+      <label for="password">Пароль</label>
+      <div class="input-password">
+        <input type="password" id="password" name="password" required>
+        <img src="./icons/eye-off.svg" alt="скрыть пароль" class="eye-icon off">
+        <img src="./icons/eye-on.svg" alt="показать пароль" class="eye-icon on">
+      </div>
+    </div>
+    <div>
+      <button class="button-submit" type="submit">Продолжить</button>
+    </div>
+  </form>
+
 </body>
 
 </html>
