@@ -1,10 +1,10 @@
-.main-header {
+.main_header {
     color: #222222;
     font-size: 140px;
     font-family: 'Golos UI', sans-serif;
 }
 
-.main-form {
+.main_form {
     width: 343px;
     min-height: 251px;
     top: 415px;
@@ -25,14 +25,14 @@ label {
     letter-spacing: -0.15px;
 }
 
-.login-container {
-    width: 343;
-    height: 88;
+.login_container {
+    width: 343px;
+    height: 88px;
     gap: 5px;
 
 }
 
-.input-login {
+.input_login {
     width: 343px;
     height: 44px;
     justify-content: space-between;
@@ -63,8 +63,8 @@ input[type="text"] {
 }
 
 .description {
-    width: 343;
-    height: 16;
+    width: 343px;
+    height: 16px;
     font-family: 'Golos UI', sans-serif;
     font-weight: 400;
     font-size: 13px;
@@ -73,13 +73,13 @@ input[type="text"] {
     color: #808080;
 }
 
-.password-container {
-    width: 343;
-    height: 67;
+.password_container {
+    width: 343px;
+    height: 67px;
     gap: 5px;
 }
 
-.input-password {
+.input_password {
     width: 343px;
     height: 44px;
     justify-content: space-between;
@@ -107,31 +107,27 @@ input[type="password"] {
     background: #F2F3F5;
 }
 
-/* Общие стили для иконок */
-.eye-icon {
+.eye_icon {
     position: absolute;
     /* Абсолютное позиционирование */
     cursor: pointer;
     /* Указатель при наведении */
     width: 24px;
-    /* Размер иконки */
     height: 24px;
-    /* Размер иконки */
     right: 15px;
-    /* Позиция от правого края */
 }
 
-.eye-icon.off {
+.eye_icon.off {
     display: block;
     /* Показываем иконку для скрытого пароля */
 }
 
-.eye-icon.on {
+.eye_icon.on {
     display: none;
     /* Скрываем иконку для видимого пароля */
 }
 
-.button-submit {
+.button_submit {
     width: 343px;
     height: 48px;
     border-radius: 10px;
@@ -139,7 +135,7 @@ input[type="password"] {
     background: #222222;
 }
 
-.button-submit {
+.button_submit {
     width: 343px;
     height: 48px;
     border-radius: 10px;
@@ -156,10 +152,10 @@ input[type="password"] {
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
-    letter-spacing: 0%;
+    letter-spacing: 0;
 }
 
-.post-container {
+.post_container {
     width: 474px;
     height: 32px;
     top: 16px;
@@ -194,15 +190,15 @@ input[type="password"] {
     color: #222222;
 }
 
-.edit-icon {
+.edit_icon {
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
-.post-photo {
-    width: 474;
-    height: 474;
+.home_photo {
+    width: 474px;
+    height: 474px;
     top: 64px;
 }
 
@@ -254,4 +250,57 @@ input[type="password"] {
     line-height: 18px;
     letter-spacing: -0.15px;
     color: #222222;
+}
+
+.photo_profile {
+    width: 123px;
+    height: 123px;
+    top: 97px;
+    left: 658.5px;
+    border-radius: 16px;
+    background: #FFFFFF;
+}
+
+.name_profile {
+    width: 361px;
+    height: 32px;
+    top: 240px;
+    left: 539.5px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    text-align: center;
+    vertical-align: middle;
+    color: #222222;
+}
+
+.text_profile {
+    width: 361px;
+    height: 36px;
+    top: 282px;
+    left: 539.5px;
+    font-family: Golos UI;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    text-align: center;
+    color: #222222;
+}
+
+.post_photos {
+    width: 971.9999389648438px;
+    height: 1621.653076171875px;
+    top: 402px;
+    left: 234px;
+    gap: 2.48px;
+}
+
+.post_photos img {
+    width: 322.346923828125px;
+    height: 322.346923828125px;
+    border-radius: 2px;
+    background: #B4B4B4;
 }
