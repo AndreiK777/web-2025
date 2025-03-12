@@ -1,7 +1,7 @@
 .main_header {
     color: #222222;
     font-size: 140px;
-    font-family: 'Golos UI', sans-serif;
+    font-family: "Golos UI", sans-serif;
 }
 
 .main_form {
@@ -18,7 +18,7 @@ label {
     width: 343px;
     height: 18px;
     color: #222222;
-    font-family: 'Golos UI', sans-serif;
+    font-family: "Golos UI", sans-serif;
     font-weight: 400;
     font-size: 15px;
     line-height: 18px;
@@ -34,7 +34,7 @@ label {
 
 .input_login {
     width: 343px;
-    height: 44px;
+    height: 22px;
     justify-content: space-between;
     /* Пробел между элементами */
     border-radius: 10px;
@@ -46,7 +46,7 @@ label {
 input[type="text"] {
     width: 319px;
     height: 18px;
-    font-family: 'Golos UI', sans-serif;
+    font-family: "Golos UI", sans-serif;
     font-weight: 400;
     /* Жирность шрифта */
     font-size: 15px;
@@ -65,7 +65,7 @@ input[type="text"] {
 .description {
     width: 343px;
     height: 16px;
-    font-family: 'Golos UI', sans-serif;
+    font-family: "Golos UI", sans-serif;
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
@@ -81,7 +81,7 @@ input[type="text"] {
 
 .input_password {
     width: 343px;
-    height: 44px;
+    height: 22px;
     justify-content: space-between;
     border-radius: 10px;
     padding: 10px 12px;
@@ -96,7 +96,7 @@ input[type="text"] {
 
 input[type="password"] {
     height: 18px;
-    font-family: 'Golos UI', sans-serif;
+    font-family: "Golos UI", sans-serif;
     font-weight: 400;
     font-size: 15px;
     line-height: 18px;
@@ -128,15 +128,7 @@ input[type="password"] {
 }
 
 .button_submit {
-    width: 343px;
-    height: 48px;
-    border-radius: 10px;
-    padding: 0px 16px;
-    background: #222222;
-}
-
-.button_submit {
-    width: 343px;
+    width: 363px;
     height: 48px;
     border-radius: 10px;
     padding: 0 16px;
@@ -148,7 +140,7 @@ input[type="password"] {
     cursor: pointer;
     /* Указатель при наведении */
     color: #FFFFFF;
-    font-family: 'Golos UI', sans-serif;
+    font-family: "Golos UI", sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;

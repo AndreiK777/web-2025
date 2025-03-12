@@ -1,0 +1,96 @@
+.post_container {
+    width: 474px;
+    height: 32px;
+    top: 16px;
+   /* display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*заполняет пространство между элементами*/
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.user img {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: #FFFFFF;
+}
+
+.user span {
+    width: 90px;
+    height: 18px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    vertical-align: middle;
+    color: #222222;
+}
+
+.edit_icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.home_photo {
+    width: 474px;
+    height: 474px;
+    top: 64px;
+}
+
+.reaction {
+    width: 68px;
+    height: 30px;
+    top: 554px;
+    gap: 3px;
+    border-radius: 8px;
+    padding: 6px 12px;
+    /*display: flex;
+    align-items: center;
+    /*выравнивание по вертикали*/
+   /* justify-content: center;
+    /*выравнивание вдоль главной оси (по умолчанию горизонталь)*/ 
+    background: #2222220D;
+}
+
+.reaction img {
+    width: 16px;
+    height: 18px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    vertical-align: middle;
+}
+
+.reaction span {
+    width: 25px;
+    height: 18px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    vertical-align: middle;
+    color: #222222
+}
+
+.comment {
+    width: 474px;
+    height: 37px;
+    top: 600px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    color: #222222;
+}

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Логин</title>
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/login.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,15 +15,15 @@
   <form class="main_form">
     <div class="login_container">
       <label for="username">Электропочта</label>
-      <div class="input_login">
-        <input type="text" id="username" name="username" required>
+      <div class="login">
+        <input class="input_login" type="text" id="username" name="username" required>
       </div>
       <small class="description">Введите электропочту в формате *****@***.**</small>
     </div>
     <div class="password_container">
-      <label for="password">Пароль</label>
-      <div class="input_password">
-        <input type="password" id="password" name="password" required>
+      <label for="password_label">Пароль</label>
+      <div class="password">
+        <input class="input_password" type="password" id="password_label" name="password" required>
         <img src="./icons/eye-off.svg" alt="скрыть пароль" class="eye_icon off">
         <img src="./icons/eye-on.svg" alt="показать пароль" class="eye_icon on">
       </div>
@@ -32,7 +32,6 @@
       <button class="button_submit" type="submit">Продолжить</button>
     </div>
   </form>
-
 </body>
 
 </html>

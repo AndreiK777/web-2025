@@ -1,0 +1,52 @@
+.photo_profile {
+    width: 123px;
+    height: 123px;
+    top: 97px;
+    left: 658.5px;
+    border-radius: 16px;
+    background: #FFFFFF;
+}
+
+.name_profile {
+    width: 361px;
+    height: 32px;
+    top: 240px;
+    left: 539.5px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    text-align: center;
+    vertical-align: middle;
+    color: #222222;
+}
+
+.text_profile {
+    width: 361px;
+    height: 36px;
+    top: 282px;
+    left: 539.5px;
+    font-family: Golos UI;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    text-align: center;
+    color: #222222;
+}
+
+.post_photos {
+    width: 971.9999389648438px;
+    height: 1621.653076171875px;
+    top: 402px;
+    left: 234px;
+    gap: 2.48px;
+}
+
+.post_photos img {
+    width: 322.346923828125px;
+    height: 322.346923828125px;
+    border-radius: 2px;
+    background: #B4B4B4;
+}
