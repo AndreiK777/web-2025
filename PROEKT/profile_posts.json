@@ -1,0 +1,29 @@
+[
+{
+    "id": 1,
+    "user_id": 1,
+    "images": [
+      "./photos/street.png",
+      "./photos/coca-cola-house.png",
+      "./photos/cake.png",
+      "./photos/friends.png",
+      "./photos/package.png",
+      "./photos/book.png"
+    ],
+    "timestamp": 1741824000
+  },
+
+  {
+    "id": 2,
+    "user_id": 2,
+    "images": [
+      "./photos/street.png",
+      "./photos/coca-cola-house.png",
+      "./photos/cake.png",
+      "./photos/friends.png",
+      "./photos/package.png",
+      "./photos/book.png"
+    ],
+    "timestamp": 1741824002
+  }
+]

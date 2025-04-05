@@ -1,2 +1,3 @@
 Options +ExecCGI
 AddHandler cgi-script .cgi .pl
+AddType application/x-httpd-php .html .php
