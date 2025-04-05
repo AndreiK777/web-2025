@@ -1,6 +1,7 @@
 <?php
     include 'validation.php'; 
     include './helpers/functions.php'; 
+
     // Получаем и проверяем параметр id
     $userId = isset($_GET['id']) ? $_GET['id'] : null;
     if ($userId === null || !is_numeric($userId)) {
@@ -16,7 +17,6 @@
     }
 
     $userPosts = getUserPosts($userId);
-
 ?>
 
 <!DOCTYPE html>
@@ -36,13 +36,13 @@
     </nav>
 
     <?php
-    // Показываем профиль, если пользователь существует
-    include 'profile_template.php'; 
+        // Показываем профиль, если пользователь существует
+        include 'profile_template.php'; 
 
-    if (empty(getUserPosts($userId))) {
-        echo "<p>Нет постов</p>";
-    }
+        if (empty(getUserPosts($userId))) {
+            echo "<p>Нет постов</p>";
+        }
     ?>
-
 </body>
+
 </html>

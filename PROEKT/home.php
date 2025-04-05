@@ -3,7 +3,6 @@
     include './helpers/functions.php'; 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -25,20 +24,23 @@
   <form method="GET" action="home.php">
     <label for="user_select">Выберите пользователя:</label>
     <select id="user_select" name="user_id">  <!-- выпадающий список -->
-      <?php
-      
-      selectUsers();
-        
-      ?>
+        <option value="">Все пользователи</option>
+        <?php
+            // Инициализация переменной, которая хранит выбранный user_id
+            $selectedUserId = isset($_GET['user_id']) && $_GET['user_id'] !== '' ? (int)$_GET['user_id'] : null;
+            // Вызов функции для отображения пользователей с сохранением выбранного
+            selectUsers($selectedUserId);
+        ?>
     </select>
     <button type="submit">Показать</button>
   </form>
 
   <div class="post_container">
-  <?php
-    $selectedUserId = isset($_GET['user_id']) && $_GET['user_id'] !== '' ? (int)$_GET['user_id'] : null;
-    $allPosts = getPosts($selectedUserId);
-    displayPosts($allPosts, $selectedUserId);
+    <?php
+        // Получаем все посты, фильтруя по выбранному пользователю,
+        $allPosts = getPosts($selectedUserId);
+        // Отображаем посты
+        displayPosts($allPosts, $selectedUserId);
     ?>
   </div>
 

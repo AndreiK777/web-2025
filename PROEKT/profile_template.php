@@ -20,6 +20,6 @@
 
     <!-- Отображение постов пользователя -->
     <div class="post_photos">
-      <?php displayPostImages($userPosts)?>
-   </div> 
+        <?php displayPostImages($userPosts) ?>
+    </div> 
 </div>

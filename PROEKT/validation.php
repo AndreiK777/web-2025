@@ -42,7 +42,6 @@ function validatePost($post) {
         return "ID пользователя должно быть целым числом.";
     }
 
-
     // Проверка описания (максимальная длина 500 символов)
     if (isset($post['description']) && strlen($post['description']) > 500) {
         return "Описание не должно превышать 500 символов.";

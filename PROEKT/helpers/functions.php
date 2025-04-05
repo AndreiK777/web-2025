@@ -9,12 +9,11 @@ function isExistUser(int $userId) {
         }
     }
 }
-    
-   // if (validateUser($user) !== true) {
-       // echo "<p>Ошибка в данных пользователя: " . validateUser($user) . "</p>";
-    //    exit; 
-    //}
 
+// if (validateUser($user) !== true) {
+//     echo "<p>Ошибка в данных пользователя: " . validateUser($user) . "</p>";
+//     exit; 
+// }
 
 function getUserPosts(int $userId): array {
     $profilePosts = json_decode(file_get_contents(__DIR__ . '/../profile_posts.json'), true);
@@ -57,22 +56,16 @@ function getPosts(?int $userId = null): array {
     return $filteredPosts;
 }
 
-function selectUsers(): void {
+function selectUsers(?int $selectedUserId = null): void {
+    // Загружаем список пользователей
     $users = json_decode(file_get_contents(__DIR__ . '/../users.json'), true);
 
-    // Добавляем опцию для всех пользователей
-    echo "<option value=''>Все пользователи</option>";
-
     foreach ($users as $user) {
-        $validationResult = validateUser($user);
-        if ($validationResult !== true) {
-            echo "<p>Ошибка в данных пользователя: " . $validationResult . "</p>";
-            continue;
-        }
-        echo "<option value='{$user['id']}'>{$user['name']}</option>";
+        // Проверяем, нужно ли поставить атрибут 'selected' для этого пользователя
+        $isSelected = ($user['id'] == $selectedUserId) ? 'selected' : '';  
+        echo "<option value='{$user['id']}' $isSelected>{$user['name']}</option>";
     }
 }
-
 
 function displayTimeAgo($postTimestamp) {
     // Разница во времени в секундах
@@ -95,19 +88,16 @@ function displayTimeAgo($postTimestamp) {
     }
 }
 
-function displayPostImages(array $userPosts): void
-{
+function displayPostImages(array $userPosts): void {
     foreach ($userPosts as $post): 
-         foreach ($post['images'] as $image): ?>
-          <img src="<?= $image ?>" alt="Фото из поста">
-         <?php endforeach; 
+        foreach ($post['images'] as $image): ?>
+            <img src="<?= $image ?>" alt="Фото из поста">
+        <?php endforeach; 
     endforeach;
 }
 
 function displayPosts(array $allPosts, ?int $selectedUserId = null): void {
-
     foreach ($allPosts as $post) {
-
         // Если выбран пользователь и пост не принадлежит ему - пропускаем
         if ($selectedUserId !== null && $post['user_id'] != $selectedUserId) {
             continue;
@@ -122,3 +112,4 @@ function displayPosts(array $allPosts, ?int $selectedUserId = null): void {
         }
     }
 }
+?>
