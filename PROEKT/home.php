@@ -40,7 +40,7 @@
         // Получаем все посты, фильтруя по выбранному пользователю,
         $allPosts = getPosts($selectedUserId);
         // Отображаем посты
-        displayPosts($allPosts, $selectedUserId);
+        displayPosts($allPosts);
     ?>
   </div>
 
