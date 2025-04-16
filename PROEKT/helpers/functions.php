@@ -86,54 +86,14 @@ function getPosts(?int $userId = null): array {
     return $posts;
 }
 
-
-function isExistUser(int $userId) {
-    $users = json_decode(file_get_contents(__DIR__ . '/../users.json'), true);
-    if ($users === null) return null;
-
-    foreach ($users as $user) {
-        if ($user['id'] == $userId) {
-            return validateUser($user) ? $user : null;
-        }
-    }
-}
-
-// if (validateUser($user) !== true) {
-//     echo "<p>Ошибка в данных пользователя: " . validateUser($user) . "</p>";
-//     exit; 
-// }
-
- function getUserPosts(int $userId): array {
-    $profilePosts = json_decode(file_get_contents(__DIR__ . '/../profile_posts.json'), true);
-
-    // Находим все посты пользователя
-    $userPosts = [];
-    foreach ($profilePosts as $post) {
-        if ($post['user_id'] == $userId) {
-            $userPosts[] = $post;
-        }
-    }
-
-    /*$validPosts = [];
-    foreach ($userPosts as $post) {
-        $postValidationResult = validatePost($post);
-        if ($postValidationResult !== true) {
-            echo "<p>Ошибка в данных постов: " . $postValidationResult . "</p>";
-            continue;
-        }
-        $validPosts[] = $post;
-    }*/
-    return $userPosts;
-} 
-
 function displayTimeAgo($postTimestamp) {
-    // Преобразуем строку в Unix timestamp, используя strtotime()
+    // преобразуем строку в Unix timestamp, используя strtotime()
     $timestamp = strtotime($postTimestamp);
 
-    // Разница во времени в секундах
+    // разница во времени в секундах
     $timeDifference = time() - $timestamp;
 
-    // Вычисляем количество дней, часов и минут
+    // вычисляем количество дней, часов и минут
     $days = floor($timeDifference / 86400); // 86400 секунд в одном дне
     $hours = floor(($timeDifference % 86400) / 3600); // Оставшиеся часы
     $minutes = floor(($timeDifference % 3600) / 60); // Оставшиеся минуты
@@ -150,51 +110,70 @@ function displayTimeAgo($postTimestamp) {
     }
 }
 
+function displayPosts(array $posts): void {
+    // уникальные user_id из постов
+    $userIds = array_unique(array_column($posts, 'users_id'));
+    
+    // получаем информацию о всех пользователях
+    $usersInfo = getUsersInfo($userIds);
+
+    foreach ($posts as $post) {
+        // получаем информацию о пользователе для текущего поста
+        $userInfo = $usersInfo[$post['users_id']] ?? null;
+        
+        include 'post_template.php';
+    }
+}
+
+/*
+function isExistUser(int $userId) {
+    $users = json_decode(file_get_contents(__DIR__ . '/../users.json'), true);
+    if ($users === null) return null;
+
+    foreach ($users as $user) {
+        if ($user['id'] == $userId) {
+            return validateUser($user) ? $user : null;
+        }
+    }
+} */
+
+// if (validateUser($user) !== true) {
+//     echo "<p>Ошибка в данных пользователя: " . validateUser($user) . "</p>";
+//     exit; 
+// }
+
+/*
+ function getUserPosts(int $userId): array {
+    $profilePosts = json_decode(file_get_contents(__DIR__ . '/../profile_posts.json'), true);
+
+    // Находим все посты пользователя
+    $userPosts = [];
+    foreach ($profilePosts as $post) {
+        if ($post['user_id'] == $userId) {
+            $userPosts[] = $post;
+        }
+    } 
+
+    /*$validPosts = [];
+    foreach ($userPosts as $post) {
+        $postValidationResult = validatePost($post);
+        if ($postValidationResult !== true) {
+            echo "<p>Ошибка в данных постов: " . $postValidationResult . "</p>";
+            continue;
+        }
+        $validPosts[] = $post;
+    }
+    return $userPosts;
+}  */
+
+/*
 function displayPostImages(array $userPosts): void {
     foreach ($userPosts as $post): 
         foreach ($post['images'] as $image): ?>
             <img src="<?= $image ?>" alt="Фото из поста">
         <?php endforeach; 
     endforeach;
-}
+} */
 
-function displayPosts(array $posts): void {
-    // Извлекаем все уникальные user_id из постов
-    $userIds = array_unique(array_column($posts, 'users_id'));
-    
-    // Получаем информацию о всех пользователях
-    $usersInfo = getUsersInfo($userIds);
-
-    foreach ($posts as $post) {
-        // Получаем информацию о пользователе для текущего поста
-        $userInfo = $usersInfo[$post['users_id']] ?? null;
-        
-   
-        
-        // Отображаем информацию о пользователе
-        if ($userInfo) {
-            echo "<div class='user'>";
-            echo "<img src='" . $userInfo['avatar'] . "' alt='Аватар' >";
-            echo "<span class='user-name'>" . $userInfo['full_name'] . "</span>";
-            echo "</div>";
-        }
-        
-        // Отображаем сам пост
-        echo "<img class='home_photo' src='" . $post['image_path'] . "' alt='Фото поста'>";
-        echo "<h2>" . $post['title'] . "</h2>";
-        echo "<div class='reaction'>";
-        echo "<img src='./icons/like.png' alt='лайк'>";
-        echo "<span>" . (isset($post['likes']) ? $post['likes'] : 0) . "</span>";
-        echo "</div>";
-        echo "<p class='comment'>" . $post['description'] . "</p>";
-        
-
-        // Получаем время публикации и выводим "X времени назад"
-        echo "<p><small>Опубликовано: ";
-        displayTimeAgo($post['created_at']);
-        echo "</small></p>";
-
-    }
-}
 
 ?>
