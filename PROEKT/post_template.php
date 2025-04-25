@@ -1,18 +1,28 @@
 <div class="post">
     <?php if ($userInfo): ?>
-    <div class='user'>
-        <img src='<?= htmlspecialchars($userInfo['avatar']) ?>' alt='Аватар'>
-        <span class='user-name'><?= htmlspecialchars($userInfo['full_name']) ?></span>
+    <div class="post__user">
+        <img src="<?= htmlspecialchars($userInfo['avatar']) ?>" alt="Аватар">
+        <span class="post__user-name"><?= htmlspecialchars($userInfo['full_name']) ?></span>
     </div>
     <?php endif; ?>
     
-    <img class='home_photo' src='<?= htmlspecialchars($post['image_path']) ?>' alt='Фото поста'>
-    <h2><?= htmlspecialchars($post['title']) ?></h2>
-    <div class='reaction'>
-        <img src='./icons/like.png' alt='лайк'>
+    <!-- Изображение поста -->
+    <?php if (!empty($post['image_path'])): ?>
+    <img class="post__image" src="<?= htmlspecialchars($post['image_path']) ?>" alt="Фото поста">
+    <?php endif; ?>
+    
+    <?php if (!empty($post['title'])): ?>
+    <h2 class="post__title"><?= htmlspecialchars($post['title']) ?></h2>
+    <?php endif; ?>
+    
+    <div class="post__reaction">
+        <img src="./icons/like.png" alt="Лайк" width="16" height="16">
         <span><?= isset($post['likes']) ? (int)$post['likes'] : 0 ?></span>
     </div>
-    <p class='comment'><?= htmlspecialchars($post['description']) ?></p>
     
-    <p><small>Опубликовано: <?php displayTimeAgo($post['created_at']); ?></small></p>
+    <?php if (!empty($post['description'])): ?>
+    <p class="post__comment"><?= htmlspecialchars($post['description']) ?></p>
+    <?php endif; ?>
+    
+    <p class="post__timestamp">Опубликовано: <?php displayTimeAgo($post['created_at']); ?></p>
 </div>

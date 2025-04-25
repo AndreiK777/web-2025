@@ -5,7 +5,6 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8">
   <title>Основная лента</title>
@@ -14,36 +13,35 @@
 
 <body>
 
-  <nav>
-    <img src="./icons/home.svg" alt="домик">
-    <img src="./icons/user.svg" alt="человек">
-    <img src="./icons/plus.svg" alt="плюсик">
+  <nav class="sidebar">
+    <img class="sidebar__icon" src="./icons/home.svg" alt="домик">
+    <img class="sidebar__icon" src="./icons/user.svg" alt="человек">
+    <img class="sidebar__icon" src="./icons/plus.svg" alt="плюсик">
   </nav>
-  
-  <!-- Форма для выбора пользователя -->
-  <form method="GET" action="home.php">
-    <label for="user_select">Выберите пользователя:</label>
-    <select id="user_select" name="user_id">  <!-- выпадающий список -->
+
+  <main class="content">
+  <div class="content__wrapper">
+    <form class="content__form" method="GET" action="home.php">
+      <label for="user_select">Выберите пользователя:</label>
+      <select id="user_select" name="user_id">
         <option value="">Все пользователи</option>
         <?php
-            // Инициализация переменной, которая хранит выбранный user_id
-            $selectedUserId = isset($_GET['user_id']) && $_GET['user_id'] !== '' ? (int)$_GET['user_id'] : null;
-            // Вызов функции для отображения пользователей с сохранением выбранного
-            selectUsers($selectedUserId);
+          $selectedUserId = isset($_GET['user_id']) && $_GET['user_id'] !== '' ? (int)$_GET['user_id'] : null;
+          selectUsers($selectedUserId);
         ?>
-    </select>
-    <button type="submit">Показать</button>
-  </form>
+      </select>
+      <button type="submit">Показать</button>
+    </form>
 
-  <div class="post_container">
-    <?php
-        // Получаем все посты, фильтруя по выбранному пользователю,
+    <div class="content__posts">
+      <?php
         $allPosts = getPosts($selectedUserId);
-        // Отображаем посты
         displayPosts($allPosts);
-    ?>
+      ?>
+    </div>
   </div>
+</main>
+
 
 </body>
-
 </html>

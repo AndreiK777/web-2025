@@ -4,34 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Логин</title>
-  <link href="css/login.css" rel="stylesheet">
+  <link href="css/testlogin2.css" rel="stylesheet">
 </head>
 
 <body>
+<div class="container">
   <header>
-    <h1 class="main_header">Войти</h1>
+    <h1 class="header">Войти</h1>
   </header>
-  <img src="./photos/login.png" alt="фотография">
-  <form class="main_form">
-    <div class="login_container">
-      <label for="username">Электропочта</label>
-      <div class="login">
-        <input class="input_login" type="text" id="username" name="username" required>
+  <img class="start-image" src="./photos/login.png" alt="фотография">
+  <form class="form">
+    <div class="login-form">
+      <label class="label" for="username">Электропочта</label>
+      <div class="field">
+        <input class="field__input" type="text" id="username" name="username" required>
       </div>
-      <small class="description">Введите электропочту в формате *****@***.**</small>
+      <small class="login-form__description">Введите электропочту в формате *****@***.**</small>
     </div>
-    <div class="password_container">
-      <label for="password_label">Пароль</label>
-      <div class="password">
-        <input class="input_password" type="password" id="password_label" name="password" required>
-        <img src="./icons/eye-off.svg" alt="скрыть пароль" class="eye_icon off">
-        <img src="./icons/eye-on.svg" alt="показать пароль" class="eye_icon on">
+    <div class="login-form">
+      <label class="label" for="password_label">Пароль</label>
+      <div class="field field_password">
+        <input class="field__input" type="password" id="password_label" name="password" required>
+        <img src="./icons/eye-off.svg" alt="скрыть пароль" class="eye eye_off">
+        <img src="./icons/eye-on.svg" alt="показать пароль" class="eye eye_on">
       </div>
     </div>
     <div>
-      <button class="button_submit" type="submit">Продолжить</button>
+      <button class="button button__text" type="submit">Продолжить</button>
     </div>
   </form>
+</div>
 </body>
 
 </html>
