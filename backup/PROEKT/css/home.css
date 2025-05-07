@@ -1,0 +1,141 @@
+/* ===== Общие стили ===== */
+body {
+    margin: 0;
+    font-family: "Golos UI", sans-serif;
+    background: #f9f9f9;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    box-sizing: border-box;
+    width: 72px;
+    background: #FFFFFF;
+    border-right: 1px solid rgba(34, 34, 34, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 24px;
+    overflow-y: auto;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+}
+
+.sidebar__icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* ===== Content (центрирование постов) ===== */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* важное изменение */
+    align-items: center;
+    /* центрируем по горизонтали */
+    padding: 24px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* ===== Форма фильтрации ===== */
+.content__form {
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 474px;
+}
+
+/* ===== Посты ===== */
+.content__posts {
+    width: 100%;
+    max-width: 474px;
+}
+
+/* ===== Один пост ===== */
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.post__user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.post__userinfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post__edit {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+
+.post__userimg {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: #FFFFFF;
+}
+
+.post__username {
+    font-family: Golos UI;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    vertical-align: middle;
+
+}
+
+.post__image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+    object-fit: cover;
+}
+
+.post__reaction {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    gap: 3px;
+    width: fit-content;
+    background: rgba(34, 34, 34, 0.05);
+    border-radius: 8px;
+    margin: 4px 0;
+}
+
+.post__timestamp {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    color: #808080;
+    margin-top: 4px;
+}
+
+.post__comment {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #222222;
+    margin: 8px 0;
+}

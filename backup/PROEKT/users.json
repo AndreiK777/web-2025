@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "name": "Ваня Денисов",
+      "avatar": "./photos/mainprofile.png",
+      "bio": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!",
+      "post_count": 15,
+      "registration_date": 1506816000
+    },
+    {
+      "id": 2,
+      "name": "Лиза Дёмина",
+      "avatar": "./photos/profile2.png",
+      "bio": "Меня зовут Лиза",
+      "post_count": 8,
+      "registration_date": 1575331200
+    }
+  ]

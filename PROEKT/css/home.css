@@ -1,125 +1,154 @@
-/* ===== Общие стили ===== */
-body {
-    margin: 0;
-    font-family: "Golos UI", sans-serif;
-    background: #f9f9f9;
-    display: flex;
-    min-height: 100vh;
-}
-
-/* ===== Sidebar ===== */
-.sidebar {
-    box-sizing: border-box;
-    width: 72px;
-    background: #FFFFFF;
-    border-right: 1px solid rgba(34, 34, 34, 0.05);
+/* Основной контейнер */
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
-    gap: 24px;
-    overflow-y: auto;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    flex-shrink: 0;
-}
-
-.sidebar__icon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-
-/* ===== Content (центрирование постов) ===== */
-.content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
     padding: 24px;
-    box-sizing: border-box;
-    min-height: 100vh;
-    overflow-y: auto;
+    min-height: calc(100vh - 73px);
+    margin-top: 73px;
 }
 
-/* ===== Форма фильтрации ===== */
-.content__form {
+/* Форма */
+.form {
     margin-bottom: 24px;
     width: 100%;
     max-width: 474px;
 }
 
-/* ===== Посты ===== */
-.content__posts {
-    width: 100%;
-    max-width: 474px;
-}
-
-/* ===== Один пост ===== */
+/* Пост */
 .post {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
+    display: grid;
+    gap: 12px;
     width: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
+/* Шапка поста */
 .post__user {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
-    margin-bottom: 12px;
 }
 
-.post__user img {
+.post__userinfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post__userimg {
     width: 32px;
     height: 32px;
     border-radius: 6px;
-    background: #FFFFFF;
 }
 
-.post__user-name {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
+.post__username {
+    font: 500 14px/18px 'Golos UI', sans-serif;
     letter-spacing: -0.15px;
-    color: #222222;
-    display: flex;
-    align-items: center;
+    color: #222;
+}
+
+.post__edit {
+    width: 24px;
+    height: 24px;
+}
+
+.post__content {
+    width: 100%;
+    max-width: 500px;
+    /* Такая же ширина, как у формы */
+    margin: 0 auto;
+    /* Центрирование */
+}
+
+/* Слайдер изображений */
+.post__slider {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.post__image-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    /* Фиксированная высота */
+    overflow: hidden;
 }
 
 .post__image {
     width: 100%;
-    height: auto;
-    margin-bottom: 12px;
+    height: 100%;
     object-fit: cover;
+    display: none;
+    /* По умолчанию скрыты */
+}
+
+
+.post__indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.post__indicator-text {
+    font: 400 15px/18px 'Golos UI', sans-serif;
+    letter-spacing: -0.15px;
+    color: #FFF;
+}
+
+.slider-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.slider-icon--left {
+    left: 16px;
+}
+
+.slider-icon--right {
+    right: 16px;
+}
+
+/* Футер поста */
+.post__content-footer {
+    display: grid;
+    gap: 24px;
+    padding: 0 4px;
 }
 
 .post__reaction {
     display: flex;
     align-items: center;
-    padding: 6px 12px;
-    gap: 3px;
-    width: fit-content;
-    background: rgba(34, 34, 34, 0.05);
+    gap: 6px;
+    background: #2222220D;
     border-radius: 8px;
-    margin: 4px 0;
-}
-
-.post__timestamp {
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-    letter-spacing: -0.15px;
-    color: #808080;
-    margin-top: 4px;
+    width: fit-content;
+    padding: 6px 12px;
+    font: 15px/18px 'Golos UI', sans-serif;
+    margin-bottom: 12px;
 }
 
 .post__comment {
-    font-size: 15px;
-    line-height: 1.4;
-    color: #222222;
-    margin: 8px 0;
+    font: 15px/18px 'Golos UI', sans-serif;
+    color: #222;
+    margin: 0 0 4px 0;
+}
+
+.post__more {
+    font: 15px/18px 'Golos UI', sans-serif;
+    color: #808080;
+    margin-bottom: 6px;
+}
+
+.post__timestamp {
+    font: 14px/18px 'Golos UI', sans-serif;
+    color: rgba(34, 34, 34, 0.5);
+
 }

@@ -1,59 +1,56 @@
 <?php
 
-
 function connectionDatabase(): PDO {
     $dsn = "mysql:host=localhost;dbname=blog"; 
-    $username = "root";   // имя пользователя MySQL
-    $password = "";   // пароль MySQL
-    
+    $username = "root";
+    $password = "";
     return new PDO($dsn, $username, $password);
-    }
+}
 
+// Новая функция для получения данных пользователя
+function getUserById(int $userId): array|false {
+    $conn = connectionDatabase();
+    $stmt = $conn->prepare("SELECT id, full_name, avatar, bio, number_posts FROM users WHERE id = :user_id");
+    $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+// Остальные существующие функции остаются без изменений
 function selectUsers(?int $selectedUserId = null): void {
+    $conn = connectionDatabase();
+    $query = "SELECT id, full_name FROM users";
     
-        $conn = connectionDatabase();
-        
-        // запрос для получения всех пользователей
-        $query = "SELECT id, full_name FROM users";
-        
-
-        if ($selectedUserId !== null) {
-            $query .= " WHERE id = :user_id";  // фильтрация по id пользователя
-        }
-    
-        $stmt = $conn->prepare($query);
-        
-        // привязываем параметр
-        if ($selectedUserId !== null) {
-            $stmt->bindParam(':user_id', $selectedUserId, PDO::PARAM_INT);
-        }
-    
-        $stmt->execute();
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-        foreach ($users as $user) {
-            $isSelected = ($user['id'] == $selectedUserId) ? 'selected' : '';  
-            echo "<option value='{$user['id']}' $isSelected>{$user['full_name']}</option>";
-        }
+    if ($selectedUserId !== null) {
+        $query .= " WHERE id = :user_id";
     }
+
+    $stmt = $conn->prepare($query);
+    
+    if ($selectedUserId !== null) {
+        $stmt->bindParam(':user_id', $selectedUserId, PDO::PARAM_INT);
+    }
+
+    $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($users as $user) {
+        $isSelected = ($user['id'] == $selectedUserId) ? 'selected' : '';  
+        echo "<option value='{$user['id']}' $isSelected>{$user['full_name']}</option>";
+    }
+}
 
 function getUsersInfo(array $userIds): array {
-    if (empty($userIds)) {
-        return [];
-    }
+    if (empty($userIds)) return [];
 
     $conn = connectionDatabase();
-    
-    // получение данных 
-    $query = "SELECT id, full_name, avatar FROM users WHERE id IN (" . implode(',', array_fill(0, count($userIds), '?')) . ")";
-    
+    $query = "SELECT id, full_name, avatar FROM users WHERE id IN (".implode(',', array_fill(0, count($userIds), '?')).")";
     $stmt = $conn->prepare($query);
     $stmt->execute($userIds);
     
-    // данные о пользователях
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
     $usersInfo = [];
+    
     foreach ($users as $user) {
         $usersInfo[$user['id']] = $user;
     }
@@ -62,43 +59,53 @@ function getUsersInfo(array $userIds): array {
 }
 
 function getPosts(?int $userId = null): array {
-
     $conn = connectionDatabase();
     
-    // запрос для получения всех постов
-    $query = "SELECT id, users_id, title, description, image_path, created_at, likes FROM posts";
+    $query = "SELECT 
+                 p.*,
+                 (SELECT GROUP_CONCAT(image_path) FROM post_images WHERE post_id = p.id) AS additional_images
+              FROM posts p";
     
-    // фильтрация по users_id
     if ($userId !== null) {
-        $query .= " WHERE users_id = :user_id";
+        $query .= " WHERE p.users_id = :user_id";
     }
 
     $stmt = $conn->prepare($query);
 
-    // привязываем параметр
     if ($userId !== null) {
         $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
     }
 
     $stmt->execute();
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    
+    // Формируем единый массив изображений для каждого поста
+    foreach ($posts as &$post) {
+        $post['images'] = [];
+        
+        // Главное изображение (если есть)
+        if (!empty($post['image_path'])) {
+            $post['images'][] = $post['image_path'];
+        }
+        
+        // Дополнительные изображения (если есть)
+        if (!empty($post['additional_images'])) {
+            $additional = explode(',', $post['additional_images']);
+            $post['images'] = array_merge($post['images'], $additional);
+        }
+    }
+    
     return $posts;
 }
 
 function displayTimeAgo($postTimestamp) {
-    // преобразуем строку в Unix timestamp, используя strtotime()
     $timestamp = strtotime($postTimestamp);
-
-    // разница во времени в секундах
     $timeDifference = time() - $timestamp;
 
-    // вычисляем количество дней, часов и минут
-    $days = floor($timeDifference / 86400); // 86400 секунд в одном дне
-    $hours = floor(($timeDifference % 86400) / 3600); // Оставшиеся часы
-    $minutes = floor(($timeDifference % 3600) / 60); // Оставшиеся минуты
+    $days = floor($timeDifference / 86400);
+    $hours = floor(($timeDifference % 86400) / 3600);
+    $minutes = floor(($timeDifference % 3600) / 60);
 
-    // В зависимости от разницы во времени выводим нужное сообщение
     if ($days > 0) {
         echo "{$days} дней назад";
     } elseif ($hours > 0) {
@@ -111,69 +118,24 @@ function displayTimeAgo($postTimestamp) {
 }
 
 function displayPosts(array $posts): void {
-    // уникальные user_id из постов
     $userIds = array_unique(array_column($posts, 'users_id'));
-    
-    // получаем информацию о всех пользователях
     $usersInfo = getUsersInfo($userIds);
 
     foreach ($posts as $post) {
-        // получаем информацию о пользователе для текущего поста
         $userInfo = $usersInfo[$post['users_id']] ?? null;
         
+        // Формируем массив всех изображений поста
+        $images = [];
+        if (!empty($post['image_path'])) {
+            $images[] = $post['image_path']; // Главное изображение
+        }
+        if (!empty($post['images'])) {
+            // Если images уже есть в массиве (из модифицированной getPosts())
+            $images = array_merge($images, (array)$post['images']);
+        }
+        
+        // Подключаем шаблон с передачей всех данных
         include 'post_template.php';
     }
 }
-
-/*
-function isExistUser(int $userId) {
-    $users = json_decode(file_get_contents(__DIR__ . '/../users.json'), true);
-    if ($users === null) return null;
-
-    foreach ($users as $user) {
-        if ($user['id'] == $userId) {
-            return validateUser($user) ? $user : null;
-        }
-    }
-} */
-
-// if (validateUser($user) !== true) {
-//     echo "<p>Ошибка в данных пользователя: " . validateUser($user) . "</p>";
-//     exit; 
-// }
-
-/*
- function getUserPosts(int $userId): array {
-    $profilePosts = json_decode(file_get_contents(__DIR__ . '/../profile_posts.json'), true);
-
-    // Находим все посты пользователя
-    $userPosts = [];
-    foreach ($profilePosts as $post) {
-        if ($post['user_id'] == $userId) {
-            $userPosts[] = $post;
-        }
-    } 
-
-    /*$validPosts = [];
-    foreach ($userPosts as $post) {
-        $postValidationResult = validatePost($post);
-        if ($postValidationResult !== true) {
-            echo "<p>Ошибка в данных постов: " . $postValidationResult . "</p>";
-            continue;
-        }
-        $validPosts[] = $post;
-    }
-    return $userPosts;
-}  */
-
-/*
-function displayPostImages(array $userPosts): void {
-    foreach ($userPosts as $post): 
-        foreach ($post['images'] as $image): ?>
-            <img src="<?= $image ?>" alt="Фото из поста">
-        <?php endforeach; 
-    endforeach;
-} */
-
-
 ?>

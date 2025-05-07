@@ -1,0 +1,150 @@
+/* Основные стили */
+body {
+    display: flex;
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Golos UI", sans-serif;
+    background-color: #f5f5f5;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    /* На всю ширину */
+    left: 0;
+    padding-left: 71px;
+    /* Отступ как в Figma */
+    box-sizing: border-box;
+}
+
+.header__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    box-sizing: border-box;
+    width: 72px;
+    background: #FFFFFF;
+    border-right: 1px solid rgba(34, 34, 34, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 24px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+}
+
+.sidebar__icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 72px;
+}
+
+/* Блок profile */
+.profile {
+    width: 100%;
+    max-width: 972px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Остальные стили оставляем без изменений */
+.profile__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.profile__avatar {
+    width: 123;
+    height: 123;
+    top: 97px;
+    left: 658.5px;
+    border-radius: 16px;
+
+}
+
+.profile__avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    background: #FFFFFF;
+    display: block;
+    /* Убираем абсолютное позиционирование */
+    position: static;
+    left: auto;
+    top: auto;
+}
+
+.profile__name {
+    width: 361;
+    height: 32;
+    top: 240px;
+    left: 539.5px;
+
+    /* Вертикальный отступ + авто-горизонтальное центрирование */
+    font-family: 'Golos UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 32px;
+    /* identical to box height, or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.245px;
+
+    color: #222222;
+
+}
+
+.profile__posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.48px;
+    width: 100%;
+}
+
+.profile__post {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.profile__post-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile__empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 40px;
+}
