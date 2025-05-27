@@ -1,0 +1,298 @@
+.main_header {
+    color: #222222;
+    font-size: 140px;
+    font-family: "Golos UI", sans-serif;
+}
+
+.main_form {
+    width: 343px;
+    min-height: 251px;
+    top: 415px;
+    left: 838px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+label {
+    width: 343px;
+    height: 18px;
+    color: #222222;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+}
+
+.login_container {
+    width: 343px;
+    height: 88px;
+    gap: 5px;
+
+}
+
+.input_login {
+    width: 343px;
+    height: 22px;
+    justify-content: space-between;
+    /* Пробел между элементами */
+    border-radius: 10px;
+    padding: 13px 12px;
+    background: #F2F3F5;
+}
+
+/* Стили для поля ввода логина */
+input[type="text"] {
+    width: 319px;
+    height: 18px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    /* Жирность шрифта */
+    font-size: 15px;
+    line-height: 18px;
+    /* Высота строки */
+    letter-spacing: -0.15px;
+    /* Межбуквенный интервал */
+    vertical-align: middle;
+    /* Вертикальное выравнивание текста */
+    border: none;
+    /* Без рамки у поля ввода */
+    color: #222222;
+    background: #F2F3F5;
+}
+
+.description {
+    width: 343px;
+    height: 16px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.08px;
+    color: #808080;
+}
+
+.password_container {
+    width: 343px;
+    height: 67px;
+    gap: 5px;
+}
+
+.input_password {
+    width: 343px;
+    height: 22px;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #F2F3F5;
+    position: relative;
+    /* Для использования в качестве контейнера для иконок в поле пароль*/
+    display: flex;
+    /* Включаем flexbox */
+    align-items: center;
+    /* Центрирование по вертикали */
+}
+
+input[type="password"] {
+    height: 18px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    vertical-align: middle;
+    border: none;
+    color: #222222;
+    background: #F2F3F5;
+}
+
+.eye_icon {
+    position: absolute;
+    /* Абсолютное позиционирование */
+    cursor: pointer;
+    /* Указатель при наведении */
+    width: 24px;
+    height: 24px;
+    right: 15px;
+}
+
+.eye_icon.off {
+    display: block;
+    /* Показываем иконку для скрытого пароля */
+}
+
+.eye_icon.on {
+    display: none;
+    /* Скрываем иконку для видимого пароля */
+}
+
+.button_submit {
+    width: 363px;
+    height: 48px;
+    border-radius: 10px;
+    padding: 0 16px;
+    background: #222222;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* Указатель при наведении */
+    color: #FFFFFF;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+
+.post_container {
+    width: 474px;
+    height: 32px;
+    top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*заполняет пространство между элементами*/
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user img {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: #FFFFFF;
+}
+
+.user span {
+    width: 90px;
+    height: 18px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    vertical-align: middle;
+    color: #222222;
+}
+
+.edit_icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.home_photo {
+    width: 474px;
+    height: 474px;
+    top: 64px;
+}
+
+.reaction {
+    width: 68px;
+    height: 30px;
+    top: 554px;
+    gap: 3px;
+    border-radius: 8px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    /*выравнивание по вертикали*/
+    justify-content: center;
+    /*выравнивание вдоль главной оси (по умолчанию горизонталь)*/
+    background: #2222220D;
+}
+
+.reaction img {
+    width: 16px;
+    height: 18px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    vertical-align: middle;
+}
+
+.reaction span {
+    width: 25px;
+    height: 18px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    vertical-align: middle;
+    color: #222222
+}
+
+.comment {
+    width: 474px;
+    height: 37px;
+    top: 600px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    color: #222222;
+}
+
+.photo_profile {
+    width: 123px;
+    height: 123px;
+    top: 97px;
+    left: 658.5px;
+    border-radius: 16px;
+    background: #FFFFFF;
+}
+
+.name_profile {
+    width: 361px;
+    height: 32px;
+    top: 240px;
+    left: 539.5px;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    text-align: center;
+    vertical-align: middle;
+    color: #222222;
+}
+
+.text_profile {
+    width: 361px;
+    height: 36px;
+    top: 282px;
+    left: 539.5px;
+    font-family: Golos UI;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    text-align: center;
+    color: #222222;
+}
+
+.post_photos {
+    width: 971.9999389648438px;
+    height: 1621.653076171875px;
+    top: 402px;
+    left: 234px;
+    gap: 2.48px;
+}
+
+.post_photos img {
+    width: 322.346923828125px;
+    height: 322.346923828125px;
+    border-radius: 2px;
+    background: #B4B4B4;
+}

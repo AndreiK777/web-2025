@@ -1,0 +1,59 @@
+/* Основные стили модального окна */
+#modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: hsla(0, 0%, 0%, 0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Контейнер контента (границы окна) */
+.modal-content {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    max-width: 800px;
+    max-height: 600px;
+    background: #000;
+}
+
+.modal-image-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.modal-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 1001;
+}

@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+.title {
+    font: 700 140px/1.28 "Golos UI", sans-serif;
+    color: #222222;
+    letter-spacing: -1.5px;
+}
+
+.form {
+    max-width: 343px;
+}
+
+.image {
+    max-width: 100%;
+}
+
+.label {
+    display: block;
+    font: 400 15px/1.2 "Golos UI", sans-serif;
+    color: #222222;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+}
+
+.input {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+    border: 1px solid #F2F3F5;
+    background-color: #F2F3F5;
+    border-radius: 10px;
+    padding: 13px 12px;
+    font: 400 15px/1.2 "Golos UI", sans-serif;
+    transition: border 0.3s ease;
+    outline: none;
+}
+
+.input_info {
+    display: block;
+    margin-bottom: 15px;
+    font: 400 13px/1.2 "Golos UI", sans-serif;
+    color: #808080;
+}
+
+.input:focus {
+    border: 1px solid #3F8AE0;
+}
+
+.input_error {
+    border: 1px solid #E64646;
+}
+
+.button {
+    display: block;
+    margin-top: 32px;
+    width: 100%;
+    font: 500 16 "Golos UI", sans-serif;
+    color: #FFFFFF;
+    background-color: #222222;
+    border-radius: 10px;
+    padding: 14.5px;
+    border: 2px solid #222222;
+    transition: border, background-color 0.3s ease;
+    cursor: pointer; 
+}
+
+.button:focus {
+    border: 2px solid #3F8AE0;
+}
+
+.button:disabled {
+    border: 2px solid #B4B4B4;
+    background-color: #B4B4B4;
+}

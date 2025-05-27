@@ -1,0 +1,171 @@
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 73px);
+    margin-top: 73px;
+    overflow-y: auto;
+}
+
+.form {
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 474px;
+}
+
+.post {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.post__user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post__userinfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post__edit {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.post__userimg {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: #FFF;
+}
+
+.post__username {
+    font-family: 'Golos UI';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    color: #222222;
+}
+
+.post__image-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.post__indicator {
+    position: absolute;
+    width: 44px;
+    height: 24px;
+    top: 20px;
+    right: 20px;
+    background: rgba(34, 34, 34, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.post__indicator-text {
+    font-family: 'Golos UI';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    color: #FFFFFF;
+}
+
+.post__slider {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.slider-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.slider-icon--left {
+    left: 16px;
+}
+
+.slider-icon--right {
+    right: 16px;
+}
+
+.post__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.post__content-footer {
+    display: grid;
+    gap: 6px;
+    /* Единый отступ между элементами */
+    margin-top: 0;
+    /* Отступ от изображения */
+}
+
+.post__reaction {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 6px 12px;
+    width: fit-content;
+    background: #2222220D;
+    border-radius: 8px;
+    font-family: 'Golos UI';
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0;
+    /* Убираем внешние отступы */
+}
+
+.post__comment {
+    font-family: 'Golos UI';
+    font-size: 15px;
+    line-height: 18px;
+    color: #222222;
+    margin: 0;
+    /* Убираем внешние отступы */
+}
+
+.post__more {
+    font-family: 'Golos UI';
+    font-size: 15px;
+    line-height: 18px;
+    color: #808080;
+    cursor: pointer;
+    margin: 0;
+    /* Убираем внешние отступы */
+}
+
+.post__timestamp {
+    font-family: 'Golos UI';
+    font-size: 14px;
+    line-height: 18px;
+    color: #22222280;
+    margin: 0;
+    /* Убираем внешние отступы */
+}

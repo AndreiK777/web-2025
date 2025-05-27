@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+}
+
+.container {
+    width: 100vw;
+    height: calc(100vw * 3 / 4);
+    /* Высота = 75% от ширины (4:3) */
+    max-height: 100vh;
+    /* Но не больше высоты экрана */
+    background: #FFFFFF;
+    position: relative;
+    margin: 0 auto;
+    /* Центрирование, если остаются пустые области сверху/снизу */
+    overflow: auto;
+}
+
+.form {
+    width: 24%;
+    /* ~343px от 1440px */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: absolute;
+    right: 18%;
+    /* ~259px от 1440px */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header {
+    font-family: 'Golos UI';
+    font-weight: 700;
+    font-size: min(9.7vw, 140px);
+    z-index: 1;
+    /* 140px от 1440px */
+    /* Ограничиваем максимум */
+    line-height: 1.28;
+    /* 180px/140px */
+    letter-spacing: -1.5px;
+    color: #222222;
+    position: absolute;
+    left: 12.4%;
+    /* 179px от 1440px */
+    top: -9.5%;
+    /* 82px от 1080px */
+    width: 26.7%;
+    /* 385px от 1440px */
+}
+
+.start-image {
+    position: absolute;
+    width: 32%;
+    /* 32% от ширины контейнера (как 462px от 1440px) */
+    height: auto;
+    aspect-ratio: 462/501;
+    /* Сохраняем пропорции 462×501 */
+    left: 18.7%;
+    /* Позиция по X (как 269px от 1440px) */
+    top: 50%;
+    transform: translateY(-50%);
+    /* Для точного позиционирования */
+    max-width: 462px;
+    /* Ограничение на максимальный размер */
+    max-height: 501px;
+    /* Ограничение на максимальный размер */
+}
+
+.label {
+    width: 100%;
+    color: #222222;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.field {
+    width: 100%;
+    height: 44px;
+    border-radius: 10px;
+    padding: 13px 12px;
+    background: #F2F3F5;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.field__input {
+    width: 100%;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.login-form__description {
+    width: 100%;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.08px;
+    color: #808080;
+}
+
+.field_password {
+    padding: 10px 12px;
+    position: relative;
+}
+
+.eye {
+    position: absolute;
+    cursor: pointer;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+}
+
+.eye_off {
+    display: block;
+    /* Показываем иконку для скрытого пароля */
+}
+
+.eye_on {
+    display: none;
+    /* Скрываем иконку для видимого пароля */
+}
+
+.button {
+    width: 100%;
+    height: 48px;
+    border-radius: 10px;
+    background: #222222;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button__text {
+    color: #FFFFFF;
+    font-family: "Golos UI";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+}

@@ -1,0 +1,19 @@
+[
+
+    {
+      "id": 1,
+      "user_id": 1,
+      "images": ["./photos/snow.png"],
+      "description": "Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский...",
+      "timestamp": 1741910400,
+      "likes": 203
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "images": ["./photos/flowers.png"],
+      "description": "Красота...»",
+      "timestamp": 1741824000,
+      "likes": 50
+    }
+  ]

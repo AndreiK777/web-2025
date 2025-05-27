@@ -1,0 +1,4 @@
+Recompiling because of C:\papa\ycheba\web\proekt\progrpacal\dear.pas
+dear.pas(19,1) Error: Can't create object file: c:\papa\ycheba\web\proekt\progrpacal\dear.exe (error code: 5)
+dear.pas(19,1) Fatal: Can't create executable c:\papa\ycheba\web\proekt\progrpacal\dear.exe
+dear.pas(0) Fatal: Compilation aborted
