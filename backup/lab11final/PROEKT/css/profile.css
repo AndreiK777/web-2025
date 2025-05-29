@@ -1,0 +1,94 @@
+.profile {
+    width: 100%;
+    max-width: 972px;
+    padding: 20px;
+    display: grid;
+    justify-items: center;
+    gap: 40px;
+}
+
+/* Аватар */
+.profile__avatar {
+    width: 123px;
+    height: 123px;
+    border-radius: 16px;
+    background: white;
+    overflow: hidden;
+}
+
+.profile__avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Текстовый блок */
+.profile__header {
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+    text-align: center;
+}
+
+.profile__name {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.245px;
+    margin: 0;
+}
+
+.profile__bio {
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: -0.15px;
+    max-width: 361px;
+    margin: 0;
+}
+
+/* Бейдж с постами */
+.profile__stats {
+    display: flex;
+    justify-content: center;
+}
+
+.stats-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: #F2F3F5;
+    border-radius: 6px;
+}
+
+.stats-badge__text {
+    font-family: 'Golos UI', sans-serif;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    color: #222222;
+}
+
+.stats-badge__icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Сетка постов */
+.profile__posts {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.48px;
+}
+
+.profile__post {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.profile__post-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

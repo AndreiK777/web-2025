@@ -69,6 +69,8 @@ function getPosts(?int $userId = null): array {
         $query .= " WHERE p.users_id = :user_id";
     }
 
+     $query .= " ORDER BY p.created_at DESC";
+
     $stmt = $conn->prepare($query);
 
     if ($userId !== null) {
@@ -105,6 +107,16 @@ function displayTimeAgo($postTimestamp) {
     $hours = floor(($timeDifference % 86400) / 3600);
     $minutes = floor(($timeDifference % 3600) / 60);
 
+    /**
+    $postDate = new DateTime($postTimestamp, new DateTimeZone('GMT+03'));
+    $date = new DateTime('now', new DateTimeZone('GMT+03'));
+    $timeDifference = $date->diff($postDate, true);
+
+    $days = $timeDifference->d;
+    $hours = $timeDifference->h;
+    $minutes = $timeDifference->i;
+     */
+
     if ($days > 0) {
         echo "{$days} дней назад";
     } elseif ($hours > 0) {
@@ -117,6 +129,8 @@ function displayTimeAgo($postTimestamp) {
 }
 
 function displayPosts(array $posts): void {
+
+    
     $userIds = array_unique(array_column($posts, 'users_id'));
     $usersInfo = getUsersInfo($userIds);
 

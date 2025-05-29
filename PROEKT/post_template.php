@@ -39,9 +39,9 @@
                 <span><?= $post['likes'] ?? 0 ?></span>
             </div>
             
-            <?php if (!empty($post['description'])): ?>
+            <?php if (!empty($post['title'])): ?>
                 <div class="post__description">
-                    <?= htmlspecialchars($post['description']) ?>
+                    <?= htmlspecialchars($post['title']) ?>
                 </div>
                 <span class="post__more">ещё</span>
             <?php endif; ?>

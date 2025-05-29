@@ -1,0 +1,11 @@
+### Отправить POST-запрос к API
+POST http://localhost/ваш_проект/api.php
+Content-Type: application/json
+
+{
+  "title": "Тест из VS Code",
+  "created_by": 1,
+  "images": [
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HgAGgwJ/lK3Q6wAAAABJRU5ErkJggg=="
+  ]
+}

@@ -1,0 +1,58 @@
+/* layout.css */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Golos UI', Arial, sans-serif;
+    padding-left: 72px;
+    overflow-x: hidden;
+    /* Ширина сайдбара */
+}
+
+.sidebar {
+    position: fixed;
+    width: 72px;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: #FFFFFF;
+    border-right: 1px solid rgba(34, 34, 34, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 24px;
+}
+
+.sidebar__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.header {
+    position: fixed;
+    width: calc(100% - 72px);
+    left: 72px;
+    top: 0;
+    height: 73px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1002;
+}
+
+.header_post {
+    height: 50px;
+}
+
+.main-content {
+    margin-top: 73px;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+}
+
+.container {
+    width: 100vw;
+    height: calc(100vw * 3 / 4);
+    max-height: 100vh;
+    background: #FFFFFF;
+    position: relative;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.form {
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: absolute;
+    right: 18%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header {
+    font-family: 'Golos UI';
+    font-weight: 700;
+    font-size: min(9.7vw, 140px);
+    z-index: 1;
+    line-height: 1.28;
+    letter-spacing: -1.5px;
+    color: #222222;
+    position: absolute;
+    left: 12.4%;
+    top: -9.5%;
+    width: 26.7%;
+}
+
+.start-image {
+    position: absolute;
+    width: 32%;
+    height: auto;
+    aspect-ratio: 462/501;
+    left: 18.7%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 462px;
+    max-height: 501px;
+}
+
+.label {
+    width: 100%;
+    color: #222222;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+}
+
+.field {
+    width: 100%;
+    height: 44px;
+    border-radius: 10px;
+    padding: 13px 12px;
+    background: #F2F3F5;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+.field__input {
+    width: 100%;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.login-form__description {
+    width: 100%;
+    font-family: "Golos UI", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.08px;
+    color: #808080;
+}
+
+.login-form__description_error {
+    color: #D32F2F;
+}
+
+.field_password {
+    padding: 10px 12px;
+    position: relative;
+}
+
+.eye {
+    position: absolute;
+    cursor: pointer;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+}
+
+.eye_off {
+    display: block;
+}
+
+.eye_on {
+    display: none;
+}
+
+.button {
+    width: 100%;
+    height: 48px;
+    border-radius: 10px;
+    background: #222222;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #333333;
+}
+
+.button__text {
+    color: #FFFFFF;
+    font-family: "Golos UI";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+.field-error {
+    border: 1px solid #D32F2F;
+}
+
+.error-message {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 6px;
+    width: 343px;
+    background: #FFECEC;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-family: "Golos UI", sans-serif;
+    font-size: 14px;
+    color: #D32F2F;
+    z-index: 1;
+}
+
+.error-message_visible {
+    display: flex;
+}
+
+.error-icon {
+    width: 18px;
+    height: 18px;
+    background-image: url('../icons/error-login.png');
+}
+
+#passwordError {
+    display: none;
+}

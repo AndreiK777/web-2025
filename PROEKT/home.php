@@ -1,4 +1,5 @@
 <?php
+    date_default_timezone_set('Europe/Moscow');
     include 'validation.php'; 
     include './helpers/functions.php'; 
 ?>
